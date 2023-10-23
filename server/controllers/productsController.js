@@ -3,7 +3,7 @@ const Product = require('../models/Products');
 // Create a new product
 exports.createProduct = async (req, res) => {
   try {
-    const productData = { ...req.body, company: req.body.companyId }; // Assuming you have companyId in the request body
+    const productData = { ...req.body, company: req.body.companyId }; 
     const product = new Product(productData);
     await product.save();
     res.status(201).json(product);
@@ -40,7 +40,7 @@ exports.updateProduct = async (req, res) => {
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
       req.params.id,
-      { ...req.body, company: req.body.companyId }, // Assuming you have companyId in the request body
+      { ...req.body, company: req.body.companyId }, 
       { new: true }
     );
     if (!updatedProduct) {
